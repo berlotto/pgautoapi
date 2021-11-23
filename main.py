@@ -7,15 +7,15 @@ from custom.animal import kill_animal
 
 @app.on_event("startup")
 async def startup():
-    await expose_table(table_name="api_animal", alias="animal")
-    await expose_table(table_name="api_herd", alias="herd")
-    await expose_table(table_name="api_farm", alias="farm")
-    await expose_table(table_name="view_clientes_ativos_pagantes", alias="clientes", read_only=True)
+    await expose_table(table_name="tabela_1", alias="tab1")
+    await expose_table(table_name="tabela_2", alias="tab2")
+    await expose_table(table_name="tabela_3", alias="tab3")
+    await expose_table(table_name="view_dados_1", alias="visao1", read_only=True)
 
     await expose_method(
-        table_name='api_animal', callable=kill_animal, 
-        alias='setdead', method='post',
-        summary="Mata um animal")
+        table_name='tabela_1', callable=kill_animal, 
+        alias='method_alias', method='post',
+        summary="Um método a mais")
 
 if __name__ == "__main__":
     import uvicorn
